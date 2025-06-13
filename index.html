@@ -39,14 +39,25 @@
         document.getElementById('ec2-ip').textContent = 'Unable to load IP.';
         console.error('Error fetching public IP:', error);
       });
+
+    fetch('/server-ip.txt')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('ec2-ip2').textContent = data.trim();
+      })
+      .catch(error => {
+        document.getElementById('ec2-ip2').textContent = 'Could not load IP.';
+        console.error('Error:', error);
+      });
   </script>
 
 </head>
 
 <body>
-  <h1 id="title" style="color: white;">Alejandro Esteban Mora Echeverry</h1>
-  <h1 id="title" style="color: blue;">12 June 2025</h1>
-  <h1 id="title">MidTerm Exam - DevOps Infrastructure Level 1</h1>
+  <p>The IP EC2 is: <strong id="ec2-ip2">Loading...</strong></p>
+  <h1 id="title2" style="color: white;">Alejandro Esteban Mora Echeverry</h1>
+  <h1 id="title3" style="color: blue;">12 June 2025</h1>
+  <h1 id="title4">MidTerm Exam - DevOps Infrastructure Level 1</h1>
 
 
 
