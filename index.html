@@ -25,10 +25,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <title>CCTB - DevOps Infrastructure Level 1</title>
+  <p>My EC2 Instance Public IP:</p>
+  <div id="ec2-ip">Loading...</div>
+
+  <script>
+    // Fetch the public IP of the instance from an external API
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('ec2-ip').textContent = data.ip;
+      })
+      .catch(error => {
+        document.getElementById('ec2-ip').textContent = 'Unable to load IP.';
+        console.error('Error fetching public IP:', error);
+      });
+  </script>
+
 </head>
 
 <body>
+  <h1 id="title" style="color: white;">Alejandro Esteban Mora Echeverry</h1>
+  <h1 id="title" style="color: blue;">12 June 2025</h1>
   <h1 id="title">MidTerm Exam - DevOps Infrastructure Level 1</h1>
+
+
 
   <div class="container">
     <!-- Left Panel -->
